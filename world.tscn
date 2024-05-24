@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://crdabnrg2t0tp"]
+
+[ext_resource type="PackedScene" uid="uid://bb711t5dekmpg" path="res://elevator.tscn" id="1_8yqet"]
+[ext_resource type="PackedScene" uid="uid://kihiu6hqrqdn" path="res://floor.tscn" id="2_n6fqf"]
+
+[node name="World" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1179.0
+offset_bottom = 680.0
+size_flags_horizontal = 3
+mouse_filter = 2
+color = Color(0.866667, 0.478431, 0.643137, 1)
+
+[node name="Floor" parent="." instance=ExtResource("2_n6fqf")]
+position = Vector2(371, 235)
+
+[node name="Floor2" parent="." instance=ExtResource("2_n6fqf")]
+position = Vector2(370, 433)
+
+[node name="Floor3" parent="." instance=ExtResource("2_n6fqf")]
+position = Vector2(370, 631)
+
+[node name="Elevator" parent="." instance=ExtResource("1_8yqet")]
+position = Vector2(373, 69)
