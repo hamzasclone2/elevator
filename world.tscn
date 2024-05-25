@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://crdabnrg2t0tp"]
+[gd_scene load_steps=5 format=3 uid="uid://crdabnrg2t0tp"]
 
 [ext_resource type="PackedScene" uid="uid://bb711t5dekmpg" path="res://elevator.tscn" id="1_8yqet"]
+[ext_resource type="Script" path="res://world.gd" id="1_w8oms"]
 [ext_resource type="PackedScene" uid="uid://kihiu6hqrqdn" path="res://floor.tscn" id="2_n6fqf"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_06l6i"]
+font_size = 32
+
 [node name="World" type="Node2D"]
+script = ExtResource("1_w8oms")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1179.0
@@ -12,20 +17,45 @@ size_flags_horizontal = 3
 mouse_filter = 2
 color = Color(0.866667, 0.478431, 0.643137, 1)
 
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 11.0
+offset_right = 114.0
+offset_bottom = 45.0
+text = "Score: "
+label_settings = SubResource("LabelSettings_06l6i")
+
+[node name="GoalLabel" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 57.0
+offset_right = 114.0
+offset_bottom = 102.0
+text = "Goal: "
+label_settings = SubResource("LabelSettings_06l6i")
+
 [node name="Floor" parent="." instance=ExtResource("2_n6fqf")]
 position = Vector2(370, 145)
+floorLevel = "5"
 
 [node name="Floor2" parent="." instance=ExtResource("2_n6fqf")]
 position = Vector2(370, 245)
+floorLevel = "4"
 
 [node name="Floor3" parent="." instance=ExtResource("2_n6fqf")]
 position = Vector2(370, 346)
+floorLevel = "3"
 
 [node name="Floor4" parent="." instance=ExtResource("2_n6fqf")]
 position = Vector2(370, 446)
+floorLevel = "2"
 
 [node name="Floor5" parent="." instance=ExtResource("2_n6fqf")]
 position = Vector2(370, 547)
+floorLevel = "1"
 
 [node name="Elevator" parent="." instance=ExtResource("1_8yqet")]
 position = Vector2(373, 45)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

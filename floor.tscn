@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://kihiu6hqrqdn"]
+[gd_scene load_steps=4 format=3 uid="uid://kihiu6hqrqdn"]
 
 [ext_resource type="Script" path="res://floor.gd" id="1_0juxa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ageh8"]
+font_size = 64
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0sj5"]
 size = Vector2(128, 128)
@@ -8,6 +11,14 @@ size = Vector2(128, 128)
 [node name="Floor" type="StaticBody2D" groups=["droppable"]]
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_0juxa")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -110.667
+offset_top = -48.0
+offset_right = -73.6667
+offset_bottom = 40.0
+text = "1"
+label_settings = SubResource("LabelSettings_ageh8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1, 0.1)
