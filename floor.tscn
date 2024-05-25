@@ -6,11 +6,11 @@
 size = Vector2(128, 128)
 
 [node name="Floor" type="StaticBody2D" groups=["droppable"]]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_0juxa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(1, 0.1)
 shape = SubResource("RectangleShape2D_h0sj5")
 
 [node name="ColorRect" type="ColorRect" parent="."]

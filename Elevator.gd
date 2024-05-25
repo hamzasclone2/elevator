@@ -13,13 +13,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if Input.is_action_just_pressed("escape"):
+		get_tree().quit()
+	
 	if draggable:
 		if Input.is_action_just_pressed("click"):
 			initialPos = global_position
-			#offset = get_global_mouse_position() - global_position
+			offset = get_global_mouse_position() - global_position
 			Global.is_dragging = true
 		if Input.is_action_pressed("click"):
-			global_position.y = get_global_mouse_position().y
+			global_position.y = get_global_mouse_position().y - offset.y
 		elif Input.is_action_just_released("click"):
 			Global.is_dragging = false
 			var tween = get_tree().create_tween()

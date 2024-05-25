@@ -13,13 +13,19 @@ mouse_filter = 2
 color = Color(0.866667, 0.478431, 0.643137, 1)
 
 [node name="Floor" parent="." instance=ExtResource("2_n6fqf")]
-position = Vector2(371, 235)
+position = Vector2(370, 145)
 
 [node name="Floor2" parent="." instance=ExtResource("2_n6fqf")]
-position = Vector2(370, 433)
+position = Vector2(370, 245)
 
 [node name="Floor3" parent="." instance=ExtResource("2_n6fqf")]
-position = Vector2(370, 631)
+position = Vector2(370, 346)
+
+[node name="Floor4" parent="." instance=ExtResource("2_n6fqf")]
+position = Vector2(370, 446)
+
+[node name="Floor5" parent="." instance=ExtResource("2_n6fqf")]
+position = Vector2(370, 547)
 
 [node name="Elevator" parent="." instance=ExtResource("1_8yqet")]
-position = Vector2(373, 69)
+position = Vector2(373, 45)
