@@ -1,7 +1,13 @@
 extends Node
 
-var is_dragging = false
+var is_dragging: bool = false
 
-var score = 0
+var score: int = 0
 
-var goalLevel = 0
+var goalLevel: int = 0
+
+var currentLevel: int = 0
+
+var passengerLoading: bool = false
+
+var passengerInElevator: bool = false

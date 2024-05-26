@@ -22,3 +22,4 @@ func _on_timer_timeout():
 		Global.goalLevel = rng.randi_range(1,5)
 	goal_label.text = "Goal: " + str(Global.goalLevel)
 	timer.start(5)
+	
