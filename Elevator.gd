@@ -30,11 +30,12 @@ func _process(_delta):
 			var tween = get_tree().create_tween()
 			if is_inside_droppable:
 				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
-				print(body_ref.get_node("Label").text)
+				print("current level: ", body_ref.get_node("Label").text)
 				Global.currentLevel = body_ref.get_node("Label").text
 				if body_ref.get_node("Label").text == str(Global.goalLevel):
 					Global.score += 1
 					get_parent()._on_timer_timeout()
+				dropOff()
 				checkPassenger()
 			else:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
@@ -61,10 +62,21 @@ func _on_area_2d_body_exited(body):
 		body.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 
 func checkPassenger():
-	if body_ref.get_node("Passenger") and not Global.passengerInElevator:
+	if not Global.passengerInElevator and body_ref.get_node_or_null("Passenger"):
 		var passenger = body_ref.get_node("Passenger")
 		body_ref.remove_child(passenger)
 		add_child(passenger)
 		passenger.position.x = sprite_2d.position.x - 15
 		passenger.position.y = sprite_2d.position.y - 15
+		print("passenger goal: ", passenger.goalFloor)
 		Global.passengerInElevator = true
+		
+func dropOff():
+	if Global.passengerInElevator:
+		var passenger = get_node("Passenger")
+		if Global.currentLevel == passenger.goalFloor:
+			remove_child(passenger)
+			passenger.queue_free()
+			Global.passengerInElevator = false
+			
+		
