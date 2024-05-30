@@ -1,17 +1,16 @@
 extends Node2D
 
-var draggable = false
-var is_inside_droppable = false
+var draggable: bool = false
+var is_inside_droppable: bool = false
 var body_ref: StaticBody2D
 var offset: Vector2
 var initialPos: Vector2
 var timer: Timer
-@onready var sprite_2d = $Sprite2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -33,7 +32,7 @@ func _process(_delta):
 				print("current level: ", body_ref.get_node("Label").text)
 				Global.currentLevel = body_ref.get_node("Label").text
 				if body_ref.get_node("Label").text == str(Global.goalLevel):
-					Global.score += 1
+					#Global.score += 1
 					get_parent()._on_timer_timeout()
 				dropOff()
 				checkPassenger()
@@ -78,5 +77,6 @@ func dropOff():
 			remove_child(passenger)
 			passenger.queue_free()
 			Global.passengerInElevator = false
+			Global.score += 1
 			
 		
