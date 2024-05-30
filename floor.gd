@@ -25,3 +25,4 @@ func generatePassenger():
 	passenger.goalFloor = int(floorLevel)
 	while passenger.goalFloor == int(floorLevel):
 		passenger.goalFloor = rng.randi_range(1,5)
+	passenger.label.text = str(passenger.goalFloor)

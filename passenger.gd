@@ -3,6 +3,7 @@ extends Node2D
 @onready var color_rect = $ColorRect
 var colors = [Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.ORANGE]
 var rng = RandomNumberGenerator.new()
+@onready var label = $Label
 
 var goalFloor: int = 0
 
@@ -12,7 +13,7 @@ func _ready():
 	if parent.name == "Elevator":
 		pass
 	var color = colors[rng.randi_range(0, len(colors)-1)]
-	modulate = Color(color)
+	color_rect.color = Color(color)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

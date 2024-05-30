@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcmsv4w3dwst7"]
+[gd_scene load_steps=4 format=3 uid="uid://bcmsv4w3dwst7"]
 
 [ext_resource type="Script" path="res://passenger.gd" id="1_u4joa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr6jv"]
 size = Vector2(40, 40)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wsmaa"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Passenger" type="StaticBody2D"]
 script = ExtResource("1_u4joa")
@@ -16,3 +22,11 @@ mouse_filter = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_dr6jv")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "0"
+label_settings = SubResource("LabelSettings_wsmaa")
+horizontal_alignment = 1
+vertical_alignment = 1
