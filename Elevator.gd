@@ -69,6 +69,7 @@ func checkPassenger():
 		passenger.position.y = sprite_2d.position.y - 15
 		print("passenger goal: ", passenger.goalFloor)
 		Global.passengerInElevator = true
+		body_ref.timer.start(3)
 		
 func dropOff():
 	if Global.passengerInElevator:

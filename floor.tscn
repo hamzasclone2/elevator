@@ -30,3 +30,7 @@ offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 64.0
 color = Color(0.839216, 1, 1, 1)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
