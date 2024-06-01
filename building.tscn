@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c05ibo2o88p4q"]
+
+[ext_resource type="Script" path="res://building.gd" id="1_mgxop"]
+[ext_resource type="PackedScene" uid="uid://kihiu6hqrqdn" path="res://floor.tscn" id="1_orq3y"]
+[ext_resource type="PackedScene" uid="uid://bb711t5dekmpg" path="res://elevator.tscn" id="2_81i6f"]
+
+[node name="Building" type="Node2D"]
+script = ExtResource("1_mgxop")
+
+[node name="Floor" parent="." instance=ExtResource("1_orq3y")]
+position = Vector2(370, 145)
+floorLevel = "5"
+
+[node name="Floor2" parent="." instance=ExtResource("1_orq3y")]
+position = Vector2(370, 245)
+floorLevel = "4"
+
+[node name="Floor3" parent="." instance=ExtResource("1_orq3y")]
+position = Vector2(370, 346)
+floorLevel = "3"
+
+[node name="Floor4" parent="." instance=ExtResource("1_orq3y")]
+position = Vector2(370, 446)
+floorLevel = "2"
+
+[node name="Floor5" parent="." instance=ExtResource("1_orq3y")]
+position = Vector2(370, 547)
+floorLevel = "1"
+
+[node name="Elevator" parent="." instance=ExtResource("2_81i6f")]
+position = Vector2(373, 45)

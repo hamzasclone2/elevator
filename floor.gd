@@ -15,10 +15,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-	#if Global.is_dragging:
-		#visible = true
-	#else:
-		#visible = false
 
 func generatePassenger():
 	var passenger = preload("res://passenger.tscn").instantiate()
@@ -33,8 +29,7 @@ func generatePassenger():
 func _on_timer_timeout():
 	if rng.randi_range(0, 1) == 1:
 		generatePassenger()
-		print("Floor Level: ", floorLevel, " has generated a passenger")
 		timer.stop()
 	else:
-		timer.start(3)
+		timer.start(5)
 		print("Floor Level: ", floorLevel, " has reset the timer")

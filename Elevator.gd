@@ -17,35 +17,31 @@ func _process(_delta):
 	if Input.is_action_just_pressed("escape"):
 		get_tree().quit()
 	
-	if draggable and not Global.passengerLoading:
+	if draggable:
 		if Input.is_action_just_pressed("click"):
 			initialPos = global_position
 			offset = get_global_mouse_position() - global_position
-			Global.is_dragging = true
+			get_parent().is_dragging = true
 		if Input.is_action_pressed("click"):
 			global_position.y = get_global_mouse_position().y - offset.y
 		elif Input.is_action_just_released("click"):
-			Global.is_dragging = false
+			get_parent().is_dragging = false
 			var tween = get_tree().create_tween()
 			if is_inside_droppable:
 				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
-				print("current level: ", body_ref.get_node("Label").text)
-				Global.currentLevel = body_ref.get_node("Label").text
-				if body_ref.get_node("Label").text == str(Global.goalLevel):
-					#Global.score += 1
-					get_parent()._on_timer_timeout()
+				get_parent().currentLevel = body_ref.get_node("Label").text
 				dropOff()
 				checkPassenger()
 			else:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 
 func _on_area_2d_mouse_entered():
-	if not Global.is_dragging:
+	if not get_parent().is_dragging:
 		draggable = true
 		scale = Vector2(1.05, 1.05)
 
 func _on_area_2d_mouse_exited():
-	if not Global.is_dragging:
+	if not get_parent().is_dragging:
 		draggable = false
 		scale = Vector2(1, 1)
 	
@@ -61,23 +57,22 @@ func _on_area_2d_body_exited(body):
 		body.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 
 func checkPassenger():
-	if not Global.passengerInElevator and body_ref.get_node_or_null("Passenger"):
+	if not get_parent().passengerInElevator and body_ref.get_node_or_null("Passenger"):
 		var passenger = body_ref.get_node("Passenger")
 		body_ref.remove_child(passenger)
 		add_child(passenger)
 		passenger.position.x = sprite_2d.position.x - 15
 		passenger.position.y = sprite_2d.position.y - 15
-		print("passenger goal: ", passenger.goalFloor)
-		Global.passengerInElevator = true
-		body_ref.timer.start(3)
+		get_parent().passengerInElevator = true
+		body_ref.timer.start(5)
 		
 func dropOff():
-	if Global.passengerInElevator:
+	if get_parent().passengerInElevator:
 		var passenger = get_node("Passenger")
-		if Global.currentLevel == passenger.goalFloor:
+		if get_parent().currentLevel == passenger.goalFloor:
 			remove_child(passenger)
 			passenger.queue_free()
-			Global.passengerInElevator = false
+			get_parent().passengerInElevator = false
 			Global.score += 1
 			
 		

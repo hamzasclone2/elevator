@@ -17,7 +17,7 @@ script = ExtResource("1_u4joa")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-mouse_filter = 2
+mouse_filter = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(20, 20)
@@ -26,6 +26,7 @@ shape = SubResource("RectangleShape2D_dr6jv")
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 text = "0"
 label_settings = SubResource("LabelSettings_wsmaa")
 horizontal_alignment = 1
