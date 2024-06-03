@@ -10,7 +10,7 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 	label.text = floorLevel
-	generatePassenger()
+	timer.start(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
