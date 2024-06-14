@@ -57,18 +57,21 @@ func _on_area_2d_body_exited(body):
 		body.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 
 func checkPassenger():
-	if not get_parent().passengerInElevator and body_ref.get_node_or_null("Passenger"):
-		var passenger = body_ref.get_node("Passenger")
+	if not get_parent().passengerInElevator and body_ref.numPassengersOnFloor > 0:
+		#var passenger = body_ref.get_node("Passenger")
+		var passenger = getFirstPassenger(body_ref)
 		body_ref.remove_child(passenger)
 		add_child(passenger)
 		passenger.position.x = sprite_2d.position.x - 15
 		passenger.position.y = sprite_2d.position.y - 15
 		get_parent().passengerInElevator = true
+		body_ref.numPassengersOnFloor -= 1
+		body_ref.shiftPassengers()
 		body_ref.timer.start(5)
 		
 func dropOff():
 	if get_parent().passengerInElevator:
-		var passenger = get_node("Passenger")
+		var passenger = getFirstPassenger(self)
 		if get_parent().currentLevel == passenger.goalFloor:
 			remove_child(passenger)
 			passenger.queue_free()
@@ -76,3 +79,8 @@ func dropOff():
 			Global.score += 1
 			
 		
+func getFirstPassenger(floor):
+	for child in floor.get_children():
+		if child is StaticBody2D:
+			return child
+	
