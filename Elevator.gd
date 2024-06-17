@@ -4,7 +4,6 @@ var draggable: bool = false
 var is_inside_droppable: bool = false
 var body_ref: StaticBody2D
 var offset: Vector2
-var initialPos: Vector2
 var timer: Timer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -19,7 +18,6 @@ func _process(_delta):
 	
 	if draggable:
 		if Input.is_action_just_pressed("click"):
-			initialPos = global_position
 			offset = get_global_mouse_position() - global_position
 			get_parent().is_dragging = true
 		if Input.is_action_pressed("click"):
@@ -27,13 +25,12 @@ func _process(_delta):
 		elif Input.is_action_just_released("click"):
 			get_parent().is_dragging = false
 			var tween = get_tree().create_tween()
-			if is_inside_droppable:
-				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
-				get_parent().currentLevel = body_ref.get_node("Label").text
-				dropOff()
-				checkPassenger()
-			else:
-				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+			tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
+			get_parent().currentLevel = body_ref.get_node("Label").text
+			dropOff()
+			checkPassenger()
+
+
 
 func _on_area_2d_mouse_entered():
 	if not get_parent().is_dragging:
