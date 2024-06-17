@@ -30,6 +30,8 @@ func generatePassenger():
 		passenger.goalFloor = rng.randi_range(1,5)
 	passenger.label.text = str(passenger.goalFloor)
 	numPassengersOnFloor += 1
+	if(get_parent().currentLevel == int(floorLevel) and get_parent().passengerInElevator == false):
+		get_parent().get_node("Elevator").checkPassenger()
 	
 func _on_timer_timeout():
 	if rng.randi_range(0, 1) == 1:
