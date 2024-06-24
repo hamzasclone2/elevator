@@ -79,8 +79,8 @@ func dropOff():
 			tween.tween_property(label, "modulate:a", 0, 0.5).set_ease(Tween.EASE_IN)
 			
 		
-func getFirstPassenger(floor):
-	for child in floor.get_children():
+func getFirstPassenger(floor_level):
+	for child in floor_level.get_children():
 		if child is StaticBody2D:
 			return child
 	
