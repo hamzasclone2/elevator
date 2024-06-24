@@ -4,6 +4,7 @@ var draggable: bool = false
 var is_inside_droppable: bool = false
 var body_ref: StaticBody2D
 var offset: Vector2
+var passengerLoading: bool = false
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var label = $Label
 
@@ -15,8 +16,8 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("escape"):
 		get_tree().quit()
-	
-	if draggable:
+
+	if draggable and not passengerLoading:
 		if Input.is_action_just_pressed("click"):
 			offset = get_global_mouse_position() - global_position
 			get_parent().is_dragging = true
@@ -33,7 +34,7 @@ func _process(_delta):
 
 
 func _on_area_2d_mouse_entered():
-	if not get_parent().is_dragging:
+	if not get_parent().is_dragging and not passengerLoading:
 		draggable = true
 		scale = Vector2(1.05, 1.05)
 
@@ -59,10 +60,16 @@ func checkPassenger():
 		var passenger = getFirstPassenger(body_ref)
 		body_ref.remove_child(passenger)
 		add_child(passenger)
-		passenger.position.x = sprite_2d.position.x - 15
-		passenger.position.y = sprite_2d.position.y - 15
+		passenger.scale.x = 0.75
+		passenger.scale.y = 0.75
+		var tween = get_tree().create_tween()
 		get_parent().passengerInElevator = true
 		body_ref.numPassengersOnFloor -= 1
+		passengerLoading = true
+		await tween.tween_property(passenger, "position", sprite_2d.position, 0.5).set_ease(Tween.EASE_OUT).finished
+		passengerLoading = false
+		#passenger.position.x = sprite_2d.position.x - 15
+		#passenger.position.y = sprite_2d.position.y - 15
 		body_ref.shiftPassengers()
 		body_ref.timer.start(5)
 		
