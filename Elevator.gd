@@ -56,7 +56,6 @@ func _on_area_2d_body_exited(body):
 
 func checkPassenger():
 	if not get_parent().passengerInElevator and body_ref.numPassengersOnFloor > 0:
-		#var passenger = body_ref.get_node("Passenger")
 		var passenger = getFirstPassenger(body_ref)
 		body_ref.remove_child(passenger)
 		add_child(passenger)
@@ -68,8 +67,6 @@ func checkPassenger():
 		passengerLoading = true
 		await tween.tween_property(passenger, "global_position", sprite_2d.global_position, 0.5).set_ease(Tween.EASE_OUT).finished
 		passengerLoading = false
-		#passenger.position.x = sprite_2d.position.x - 15
-		#passenger.position.y = sprite_2d.position.y - 15
 		body_ref.shiftPassengers()
 		body_ref.timer.start(5)
 		

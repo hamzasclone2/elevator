@@ -44,6 +44,9 @@ func _on_timer_timeout():
 		#print("Floor Level: ", floorLevel, " has reset the timer")
 
 func shiftPassengers():
+	var tween = get_tree().create_tween()
 	for child in get_children():
 		if child is StaticBody2D:
-			child.position.x -= 50
+			var newPos: Vector2 = Vector2(child.position.x - 50, child.position.y)
+			tween.tween_property(child, "position", newPos, 0.3).set_ease(Tween.EASE_OUT)
+			#child.position.x -= 50
