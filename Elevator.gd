@@ -66,7 +66,7 @@ func checkPassenger():
 		get_parent().passengerInElevator = true
 		body_ref.numPassengersOnFloor -= 1
 		passengerLoading = true
-		await tween.tween_property(passenger, "position", sprite_2d.position, 0.5).set_ease(Tween.EASE_OUT).finished
+		await tween.tween_property(passenger, "global_position", sprite_2d.global_position, 0.5).set_ease(Tween.EASE_OUT).finished
 		passengerLoading = false
 		#passenger.position.x = sprite_2d.position.x - 15
 		#passenger.position.y = sprite_2d.position.y - 15
