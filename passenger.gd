@@ -5,7 +5,7 @@ extends Node2D
 var colors = [Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.ORANGE]
 var rng = RandomNumberGenerator.new()
 @onready var label = $Label
-var numSprites: int = 2
+var numSprites: int = 6
 
 var goalFloor: int = 0
 

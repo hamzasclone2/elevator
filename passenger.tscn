@@ -1,10 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcmsv4w3dwst7"]
+[gd_scene load_steps=17 format=3 uid="uid://bcmsv4w3dwst7"]
 
 [ext_resource type="Script" path="res://passenger.gd" id="1_u4joa"]
 [ext_resource type="Texture2D" uid="uid://cgbl2yip1l6a5" path="res://sprites/tile_0023.png" id="2_tkeeo"]
 [ext_resource type="Texture2D" uid="uid://bsiwvvi5v8dog" path="res://sprites/tile_0050.png" id="3_or53e"]
 [ext_resource type="Texture2D" uid="uid://dpf2jnbvrxvmx" path="res://sprites/tile_0104.png" id="4_7ujuh"]
 [ext_resource type="Texture2D" uid="uid://sfnf7amlqph5" path="res://sprites/tile_0131.png" id="5_qxvcp"]
+[ext_resource type="Texture2D" uid="uid://dvsdo4ae5mah0" path="res://sprites/tile_0185.png" id="6_kllsp"]
+[ext_resource type="Texture2D" uid="uid://c3sem7xfoluy1" path="res://sprites/tile_0212.png" id="7_bd3ff"]
+[ext_resource type="Texture2D" uid="uid://cy0456n82slpc" path="res://sprites/tile_0266.png" id="8_r3y0i"]
+[ext_resource type="Texture2D" uid="uid://b8qyt3k88dgvq" path="res://sprites/tile_0293.png" id="9_uh5ca"]
+[ext_resource type="Texture2D" uid="uid://ccv0afdwm585v" path="res://sprites/tile_0347.png" id="10_paltn"]
+[ext_resource type="Texture2D" uid="uid://bk7v2hk6jyqmv" path="res://sprites/tile_0374.png" id="11_8lsvg"]
+[ext_resource type="Texture2D" uid="uid://dk08af5r6b3pr" path="res://sprites/tile_0428.png" id="12_gbyfk"]
+[ext_resource type="Texture2D" uid="uid://pn1qffh3vkv5" path="res://sprites/tile_0455.png" id="13_lxomx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xp84y"]
 animations = [{
@@ -29,6 +37,50 @@ animations = [{
 "loop": true,
 "name": &"passenger1",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kllsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bd3ff")
+}],
+"loop": true,
+"name": &"passenger2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_r3y0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uh5ca")
+}],
+"loop": true,
+"name": &"passenger3",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_paltn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8lsvg")
+}],
+"loop": true,
+"name": &"passenger4",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_gbyfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lxomx")
+}],
+"loop": true,
+"name": &"passenger5",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr6jv"]
@@ -47,7 +99,7 @@ script = ExtResource("1_u4joa")
 position = Vector2(21, 22.25)
 scale = Vector2(2.199, 2)
 sprite_frames = SubResource("SpriteFrames_xp84y")
-animation = &"passenger0"
+animation = &"passenger5"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
