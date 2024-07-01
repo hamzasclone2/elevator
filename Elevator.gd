@@ -26,7 +26,7 @@ func _process(_delta):
 		elif Input.is_action_just_released("click"):
 			get_parent().is_dragging = false
 			var tween = get_tree().create_tween()
-			tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
+			await tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT).finished
 			get_parent().currentLevel = body_ref.get_node("Label").text
 			dropOff()
 			checkPassenger()
