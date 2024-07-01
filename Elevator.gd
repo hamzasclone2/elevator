@@ -46,13 +46,13 @@ func _on_area_2d_mouse_exited():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group('droppable'):
 		is_inside_droppable = true
-		body.modulate = Color(Color.REBECCA_PURPLE, 1)
+		body.color_rect.modulate = Color(Color.REBECCA_PURPLE, 1)
 		body_ref = body
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group('droppable'):
 		is_inside_droppable = false
-		body.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
+		body.color_rect.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 
 func checkPassenger():
 	if not get_parent().passengerInElevator and body_ref.numPassengersOnFloor > 0:

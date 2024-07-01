@@ -3,6 +3,7 @@ extends StaticBody2D
 @export var floorLevel: String = '0'
 @onready var label: Label = $Label
 @onready var timer = $Timer
+@onready var color_rect = $ColorRect
 
 var rng = RandomNumberGenerator.new()
 
@@ -12,7 +13,7 @@ const MAX_PASSENGERS_ON_FLOOR: int = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	modulate = Color(Color.MEDIUM_PURPLE, 0.7)
+	color_rect.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 	label.text = floorLevel
 	timer.start(0)
 
