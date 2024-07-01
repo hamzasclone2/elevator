@@ -70,7 +70,7 @@ func checkPassenger():
 		passenger.animated_sprite_2d.stop()
 		passengerLoading = false
 		body_ref.shiftPassengers()
-		body_ref.timer.start(5)
+		body_ref.timer.start(Global.timeBetweenPassengers)
 		
 func dropOff():
 	if get_parent().passengerInElevator:

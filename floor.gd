@@ -39,9 +39,9 @@ func _on_timer_timeout():
 		generatePassenger()
 		timer.stop()
 		if(numPassengersOnFloor < MAX_PASSENGERS_ON_FLOOR):
-			timer.start(5)
+			timer.start(Global.timeBetweenPassengers)
 	else:
-		timer.start(5)
+		timer.start(Global.timeBetweenPassengers)
 
 
 func shiftPassengers():

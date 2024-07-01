@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var score_label = $ScoreLabel
-@onready var goal_label = $GoalLabel
 
 var rng = RandomNumberGenerator.new()
 

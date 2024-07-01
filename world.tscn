@@ -23,14 +23,6 @@ offset_bottom = 45.0
 text = "Score: "
 label_settings = SubResource("LabelSettings_06l6i")
 
-[node name="GoalLabel" type="Label" parent="."]
-offset_left = 11.0
-offset_top = 57.0
-offset_right = 114.0
-offset_bottom = 102.0
-text = "Goal: "
-label_settings = SubResource("LabelSettings_06l6i")
-
 [node name="Building" parent="." instance=ExtResource("2_qcw7v")]
 
 [node name="Building2" parent="." instance=ExtResource("2_qcw7v")]
