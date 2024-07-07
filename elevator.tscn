@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb711t5dekmpg"]
+[gd_scene load_steps=6 format=3 uid="uid://bb711t5dekmpg"]
 
 [ext_resource type="Script" path="res://elevator.gd" id="1_74kpp"]
 [ext_resource type="Texture2D" uid="uid://cfysfw8sk2if5" path="res://sprites/elevator-v1.png" id="2_lrues"]
+[ext_resource type="AudioStream" uid="uid://puhhgyjge00b" path="res://success_sound.wav" id="3_acvvx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo8qj"]
 size = Vector2(128, 128)
@@ -31,6 +32,10 @@ offset_bottom = 13.0
 size_flags_horizontal = 8
 text = "+1"
 label_settings = SubResource("LabelSettings_odffm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_acvvx")
+volume_db = -5.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

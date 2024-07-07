@@ -7,6 +7,7 @@ var offset: Vector2
 var passengerLoading: bool = false
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var label = $Label
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -83,6 +84,7 @@ func dropOff():
 			var tween = get_tree().create_tween()
 			tween.tween_property(label, "modulate:a", 1, 0.5).set_ease(Tween.EASE_OUT)
 			tween.tween_property(label, "modulate:a", 0, 0.5).set_ease(Tween.EASE_IN)
+			audio_stream_player_2d.play()
 			
 		
 func getFirstPassenger(floor_level):
