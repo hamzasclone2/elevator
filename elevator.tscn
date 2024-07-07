@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bb711t5dekmpg"]
 
 [ext_resource type="Script" path="res://elevator.gd" id="1_74kpp"]
-[ext_resource type="Texture2D" uid="uid://dwvmwb3ff6yh3" path="res://icon.svg" id="2_i8iwh"]
+[ext_resource type="Texture2D" uid="uid://cfysfw8sk2if5" path="res://sprites/elevator-v1.png" id="2_lrues"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo8qj"]
 size = Vector2(128, 128)
@@ -14,7 +14,7 @@ script = ExtResource("1_74kpp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_i8iwh")
+texture = ExtResource("2_lrues")
 
 [node name="Area2D" type="Area2D" parent="."]
 

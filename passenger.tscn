@@ -99,7 +99,7 @@ script = ExtResource("1_u4joa")
 position = Vector2(21, 22.25)
 scale = Vector2(2.199, 2)
 sprite_frames = SubResource("SpriteFrames_xp84y")
-animation = &"passenger5"
+animation = &"passenger0"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
