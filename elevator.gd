@@ -68,6 +68,8 @@ func checkPassenger():
 		passengerLoading = true
 		passenger.animated_sprite_2d.play()
 		await tween.tween_property(passenger, "global_position", sprite_2d.global_position, 0.5).set_ease(Tween.EASE_OUT).finished
+		passenger.label.visible = true
+		passenger.sprite_2d.visible = true
 		passenger.animated_sprite_2d.stop()
 		passengerLoading = false
 		body_ref.shiftPassengers()
