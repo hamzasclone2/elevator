@@ -24,6 +24,8 @@ func _process(_delta):
 func generatePassenger():
 	var passenger = preload("res://passenger.tscn").instantiate()
 	add_child(passenger)
+	var tween = get_tree().create_tween()
+	tween.tween_property(passenger, "modulate:a", 1, 0.5).set_ease(Tween.EASE_OUT)
 	passenger.position.x += 75
 	passenger.position.x += (50*numPassengersOnFloor)
 	passenger.goalFloor = int(floorLevel)

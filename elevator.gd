@@ -79,13 +79,19 @@ func dropOff():
 	if get_parent().passengerInElevator:
 		var passenger = getFirstPassenger(self)
 		if get_parent().currentLevel == passenger.goalFloor:
-			remove_child(passenger)
-			passenger.queue_free()
-			get_parent().passengerInElevator = false
-			Global.score += 1
 			var tween = get_tree().create_tween()
 			tween.tween_property(label, "modulate:a", 1, 0.5).set_ease(Tween.EASE_OUT)
 			tween.tween_property(label, "modulate:a", 0, 0.5).set_ease(Tween.EASE_IN)
+			get_parent().passengerInElevator = false
+			var passengerTween = get_tree().create_tween()
+			var newPos: Vector2 = Vector2(passenger.global_position.x-100, passenger.global_position.y)
+			passenger.animated_sprite_2d.play()
+			passengerTween.tween_property(passenger, "modulate:a", 0, 0.5).set_ease(Tween.EASE_OUT)
+			await passengerTween.parallel().tween_property(passenger, "global_position", newPos, 0.5).set_ease(Tween.EASE_OUT).finished
+			passenger.animated_sprite_2d.stop()
+			remove_child(passenger)
+			passenger.queue_free()
+			Global.score += 1
 			audio_stream_player_2d.play()
 			
 		
