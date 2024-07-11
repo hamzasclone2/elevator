@@ -15,9 +15,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("escape"):
-		get_tree().quit()
-
 	if draggable and not passengerLoading:
 		if Input.is_action_just_pressed("click"):
 			offset = get_global_mouse_position() - global_position

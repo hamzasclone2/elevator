@@ -17,7 +17,6 @@ func _ready():
 	var color = colors[rng.randi_range(0, len(colors)-1)]
 	color_rect.color = Color(color)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass

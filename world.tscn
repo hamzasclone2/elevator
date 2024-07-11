@@ -23,7 +23,19 @@ offset_bottom = 45.0
 text = "Score: "
 label_settings = SubResource("LabelSettings_06l6i")
 
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 45.0
+offset_right = 114.0
+offset_bottom = 90.0
+text = "Time remaining: "
+label_settings = SubResource("LabelSettings_06l6i")
+
 [node name="Building" parent="." instance=ExtResource("2_qcw7v")]
 
 [node name="Building2" parent="." instance=ExtResource("2_qcw7v")]
 position = Vector2(314, 0)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
