@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bcmsv4w3dwst7"]
+[gd_scene load_steps=17 format=3 uid="uid://bcmsv4w3dwst7"]
 
 [ext_resource type="Script" path="res://passenger.gd" id="1_u4joa"]
 [ext_resource type="Texture2D" uid="uid://cgbl2yip1l6a5" path="res://sprites/tile_0023.png" id="2_tkeeo"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bk7v2hk6jyqmv" path="res://sprites/tile_0374.png" id="11_8lsvg"]
 [ext_resource type="Texture2D" uid="uid://dk08af5r6b3pr" path="res://sprites/tile_0428.png" id="12_gbyfk"]
 [ext_resource type="Texture2D" uid="uid://pn1qffh3vkv5" path="res://sprites/tile_0455.png" id="13_lxomx"]
-[ext_resource type="Texture2D" uid="uid://cl3ui106l1k3" path="res://sprites/passenger_floor.png" id="14_sgha8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xp84y"]
 animations = [{
@@ -94,14 +93,13 @@ outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Passenger" type="StaticBody2D"]
-modulate = Color(1, 1, 1, 0)
 script = ExtResource("1_u4joa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(21, 22.25)
 scale = Vector2(2.199, 2)
 sprite_frames = SubResource("SpriteFrames_xp84y")
-animation = &"passenger0"
+animation = &"passenger5"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -114,13 +112,7 @@ visible = false
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_dr6jv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(19, -4)
-texture = ExtResource("14_sgha8")
-
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_top = -26.0
 offset_right = 40.0
 offset_bottom = 14.0

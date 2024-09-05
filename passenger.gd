@@ -6,7 +6,7 @@ var colors = [Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.ORANGE]
 var rng = RandomNumberGenerator.new()
 @onready var label = $Label
 var numSprites: int = 6
-@onready var sprite_2d = $Sprite2D
+@onready var sprite_2d = $AnimatedSprite2D
 
 var goalFloor: int = 0
 
